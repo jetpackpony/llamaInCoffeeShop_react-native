@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 import Reducer from './reducer/Reducer';
-import Player from './Player';
 import { jumpStart, tick } from './actions/Actions';
+import Scene from './Scene';
 
 const store = createStore(
   Reducer,
@@ -23,7 +18,10 @@ const frameRate = 0;
 export default class LlamaInCoffeeShop extends Component {
   constructor(props) {
     super(props);
-    this.state = { ...store.getState(), frameRate: 0 };
+    this.state = {
+      store: store.getState(),
+      frameRate: 0
+    };
     this.updateFrame = this.updateFrame.bind(this);
     this.timer = null;
   }
@@ -41,7 +39,7 @@ export default class LlamaInCoffeeShop extends Component {
 
     // Update application
     this.setState({
-      ...store.getState(),
+      store: store.getState(),
       frameRate
     });
 
@@ -59,22 +57,12 @@ export default class LlamaInCoffeeShop extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>{this.state.frameRate}</Text>
-        <Player
-          position={this.state.player.coord}
-          onPressIn={() => { store.dispatch(jumpStart()); }}
-        />
-      </View>
+      <Scene
+        state={this.state.store}
+        frameRate={this.state.frameRate}
+        dispatch={store.dispatch}
+      />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 100
-  }
-});
