@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 
-import reducer from './reducer/reducer';
-import { tick, ActionTypes } from './actions/actions';
+import reducer from './reducer';
+import { tick, ActionTypes } from './actions';
 import Scene from './Scene';
 
 const logger = createLogger({

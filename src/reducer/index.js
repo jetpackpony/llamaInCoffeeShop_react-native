@@ -1,6 +1,6 @@
 import jumpStartReducer from './jumpStartReducer';
 import tickReducer from './tickReducer';
-import { ActionTypes } from '../actions/actions';
+import { ActionTypes } from '../actions';
 const { JUMP_START, TICK } = ActionTypes;
 
 const initialState = {
