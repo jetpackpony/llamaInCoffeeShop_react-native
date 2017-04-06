@@ -1,4 +1,3 @@
-
 const speed = 0.05; // pixels per milisecond
 const performTick = (state, timestamp) => {
   // If the first frame, just set the new timestamp
@@ -23,7 +22,7 @@ const performTick = (state, timestamp) => {
   };
 };
 
-export default function tick(state, action) {
+export default function tickReducer(state, action) {
   return {
     ...state,
     player: {

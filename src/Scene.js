@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import { jumpStart } from './actions/Actions';
+import { jumpStart } from './actions/actions';
 import Player from './Player';
 
 export default ({ state, frameRate, dispatch }) => {
