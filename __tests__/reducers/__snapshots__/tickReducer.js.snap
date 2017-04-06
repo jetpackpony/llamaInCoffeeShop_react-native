@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`skips a frame if the player position moved less than a pixel 1`] = `
+Object {
+  "player": Object {
+    "coord": 10,
+    "inJump": false,
+    "lastUpdate": 1000,
+  },
+}
+`;
+
+exports[`updates lastUpdated when lastUpdated is zero 1`] = `
+Object {
+  "player": Object {
+    "coord": 10,
+    "inJump": false,
+    "lastUpdate": 100,
+  },
+}
+`;
+
+exports[`updates player's position 1`] = `
+Object {
+  "player": Object {
+    "coord": 60,
+    "inJump": false,
+    "lastUpdate": 2000,
+  },
+}
+`;
