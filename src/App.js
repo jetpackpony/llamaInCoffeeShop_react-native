@@ -13,7 +13,7 @@ export default class LlamaInCoffeeShop extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.player}>
+        <View style={[styles.player, {bottom: store.getState().player.coord}]}>
         </View>
       </View>
     );
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     padding: 100
   },
   player: {
+    position: 'absolute',
     height: 100,
     width: 100,
     backgroundColor: "#567"
