@@ -1,3 +1,4 @@
+import JumpStart from './JumpStart';
 import { ActionTypes } from '../actions/Actions';
 const { JUMP_START, TICK } = ActionTypes;
 
@@ -35,14 +36,7 @@ const performTick = (state, timestamp) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case JUMP_START:
-      return {
-        ...state,
-        player: {
-          ...state.player,
-          inJump: true
-        }
-      };
+    case JUMP_START: return JumpStart(state, action);
     case TICK:
       return {
         ...state,
