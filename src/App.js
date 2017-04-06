@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 
 import Reducer from './reducer/Reducer';
-import { jumpStart, tick } from './actions/Actions';
+import { tick, ActionTypes } from './actions/Actions';
 import Scene from './Scene';
+
+const logger = createLogger({
+  predicate: (getState, action) => action.type !== ActionTypes.TICK
+});
 
 const store = createStore(
   Reducer,
