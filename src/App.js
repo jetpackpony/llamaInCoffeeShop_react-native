@@ -9,16 +9,8 @@ export default class LlamaInCoffeeShop extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev
-        </Text>
+        <View style={styles.player}>
+        </View>
       </View>
     );
   }
@@ -27,18 +19,13 @@ export default class LlamaInCoffeeShop extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    padding: 100
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  player: {
+    height: 100,
+    width: 100,
+    backgroundColor: "#567"
+  }
 });
