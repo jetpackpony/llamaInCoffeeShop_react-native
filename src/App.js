@@ -20,11 +20,7 @@ export default class LlamaInCoffeeShop extends Component {
       <View style={styles.container}>
         <Player
           position={store.getState().player.coord}
-          onPressIn={() => {
-            console.log('pressed');
-            store.dispatch(jumpStart());
-            console.log("store:", store.getState());
-          }}
+          onPressIn={() => { store.dispatch(jumpStart()); }}
         />
       </View>
     );
