@@ -14,7 +14,7 @@ export default ({ state, frameRate, dispatch }) => {
       <Text>{frameRate}</Text>
       <Player
         position={state.player.coord}
-        onPressIn={() => { dispatch(jumpStart()); }}
+        onPressIn={() => dispatch(jumpStart())}
       />
     </View>
   );
