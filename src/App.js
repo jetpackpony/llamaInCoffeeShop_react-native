@@ -4,6 +4,10 @@ import {
   Text,
   View
 } from 'react-native';
+import { createStore } from 'redux';
+import Reducer from './reducer/Reducer';
+
+const store = createStore(Reducer);
 
 export default class LlamaInCoffeeShop extends Component {
   render() {
