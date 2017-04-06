@@ -3,12 +3,16 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import Reducer from './reducer/Reducer';
 import Player from './Player';
 import { jumpStart } from './actions/Actions';
 
-const store = createStore(Reducer);
+const store = createStore(
+  Reducer,
+  applyMiddleware(logger)
+);
 
 export default class LlamaInCoffeeShop extends Component {
   render() {
