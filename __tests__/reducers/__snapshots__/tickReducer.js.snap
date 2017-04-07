@@ -5,17 +5,17 @@ Object {
   "player": Object {
     "coord": 10,
     "inJump": false,
-    "lastUpdate": 1000,
+    "lastTick": 1000,
   },
 }
 `;
 
-exports[`updates lastUpdated when lastUpdated is zero 1`] = `
+exports[`updates lastTick when lastTick is zero 1`] = `
 Object {
   "player": Object {
     "coord": 10,
     "inJump": false,
-    "lastUpdate": 100,
+    "lastTick": 100,
   },
 }
 `;
@@ -25,7 +25,7 @@ Object {
   "player": Object {
     "coord": 60,
     "inJump": false,
-    "lastUpdate": 2000,
+    "lastTick": 2000,
   },
 }
 `;

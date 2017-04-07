@@ -1,12 +1,12 @@
 const speed = 0.05; // pixels per milisecond
 const performTick = (state, timestamp) => {
   // If the first frame, just set the new timestamp
-  if (state.lastUpdate === 0) {
-    return { ...state, lastUpdate: timestamp };
+  if (state.lastTick === 0) {
+    return { ...state, lastTick: timestamp };
   }
 
   // Calculate number of pixels to move
-  const frameLag = timestamp - state.lastUpdate;
+  const frameLag = timestamp - state.lastTick;
   const pixToMove = frameLag * speed;
 
   // If less than one pixel, skip this frame
@@ -18,7 +18,7 @@ const performTick = (state, timestamp) => {
   return {
     ...state,
     coord: state.coord + pixToMove,
-    lastUpdate: timestamp
+    lastTick: timestamp
   };
 };
 

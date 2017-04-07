@@ -7,7 +7,7 @@ const initialState = {
   player: {
     coord: 10,
     inJump: false,
-    lastUpdate: 0
+    lastTick: 0
   }
 };
 
