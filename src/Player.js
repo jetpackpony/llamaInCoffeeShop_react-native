@@ -8,7 +8,7 @@ import {
 export default ({ position, onPressIn }) => {
   return (
     <TouchableWithoutFeedback onPressIn={onPressIn}>
-      <View style={[styles.player, {bottom: position}]}>
+      <View style={[styles.player, {bottom: position.y, left: position.x}]}>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -17,8 +17,8 @@ export default ({ position, onPressIn }) => {
 const styles = StyleSheet.create({
   player: {
     position: 'absolute',
-    height: 100,
-    width: 100,
+    height: 50,
+    width: 50,
     backgroundColor: "#567"
   }
 });

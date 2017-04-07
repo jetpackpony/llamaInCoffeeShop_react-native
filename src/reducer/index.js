@@ -11,7 +11,7 @@ const initialState = {
     displayObject: {
       acceleration: { x: 0, y: GRAVITY },
       velocity: { x: 0, y: 0 },
-      coords: { x: 0, y: 30 },
+      coords: { x: 30, y: 30 },
       lastTick: 0
     }
   }
