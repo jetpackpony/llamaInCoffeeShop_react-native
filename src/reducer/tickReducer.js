@@ -1,4 +1,33 @@
-const speed = 0.05; // pixels per milisecond
+import { GRAVITY, GROUND_Y } from '../constants';
+
+const calcVelocity = (v, a, t) => {
+  return {
+    x: v.x + a.x * t,
+    y: v.y + a.y * t
+  };
+};
+
+const calcCoordinates = (oldCoords, velocity, ground, t) => {
+  const dX = velocity.x * t;
+  const dY = velocity.y * t;
+
+  // If the move is less than 1px, return old coords
+  if (Math.abs(dX) < 1 && Math.abs(dY) < 1) {
+    return oldCoords;
+  }
+
+  let newCoords = {
+    x: oldCoords.x + dX,
+    y: oldCoords.y + dY
+  };
+
+  // If the Y is lower than the ground, clip it
+  if (newCoords.y < ground) {
+    newCoords.y = ground;
+  }
+  return newCoords;
+};
+
 const updateDisplayObject = (body, timestamp) => {
   // If the first frame, just set the new timestamp
   if (body.lastTick === 0) {
@@ -8,19 +37,14 @@ const updateDisplayObject = (body, timestamp) => {
     };
   }
 
-  // Calculate number of pixels to move
-  const frameLag = timestamp - body.lastTick;
-  const pixToMove = frameLag * speed;
+  const timeDiff = (timestamp - body.lastTick) / 1000;
+  const newVelocity = calcVelocity(body.velocity, body.acceleration, timeDiff);
+  const newCoords = calcCoordinates(body.coords, newVelocity, GROUND_Y, timeDiff);
 
-  // If less than one pixel, skip this frame
-  if (pixToMove < 1) {
-    return body;
-  }
-
-  // Else, update coordinates and timestamp
   return {
     ...body,
-    y: body.y + pixToMove,
+    velocity: newVelocity,
+    coords: newCoords,
     lastTick: timestamp
   };
 };

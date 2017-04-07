@@ -1,5 +1,7 @@
 import jumpReducer from './jumpReducer';
 import tickReducer from './tickReducer';
+
+import { GRAVITY, GROUND_Y } from '../constants';
 import { ActionTypes } from '../actions';
 const { JUMP, TICK } = ActionTypes;
 
@@ -7,7 +9,9 @@ const initialState = {
   player: {
     inJump: false,
     displayObject: {
-      y: 10,
+      acceleration: { x: 0, y: GRAVITY },
+      velocity: { x: 0, y: 0 },
+      coords: { x: 0, y: 530 },
       lastTick: 0
     }
   }
