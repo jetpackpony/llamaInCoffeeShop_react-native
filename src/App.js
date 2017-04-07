@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
+import Orientation from 'react-native-orientation';
 
 import reducer from './reducer';
 import { tick, ActionTypes } from './actions';
@@ -53,6 +54,10 @@ export default class LlamaInCoffeeShop extends Component {
 
   componentWillMount() {
     this.timer = requestAnimationFrame(this.updateFrame);
+  }
+
+  componentDidMount() {
+    Orientation.lockToLandscape();
   }
 
   componentWillUnmount() {
