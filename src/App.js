@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { createStore, applyMiddleware } from 'redux';
-import { createLogger } from 'redux-logger';
 import Orientation from 'react-native-orientation';
 
 import reducer from './reducer';
 import { tick, ActionTypes } from './actions';
 import Scene from './Scene';
 
-const logger = createLogger({
-  predicate: (getState, action) => action.type !== ActionTypes.TICK
-});
+const middlewares = [];
+
+if (process.env.NODE_ENV === `development`) {
+  const { createLogger } = require('redux-logger');
+  const logger = createLogger({
+    predicate: (getState, action) => action.type !== ActionTypes.TICK
+  });
+
+  middlewares.push(logger);
+}
 
 const store = createStore(
   reducer,
-  applyMiddleware(logger)
+  applyMiddleware(...middlewares)
 );
 
 const lastFrameCount = 0;
