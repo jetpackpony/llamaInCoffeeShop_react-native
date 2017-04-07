@@ -5,9 +5,11 @@ const { JUMP, TICK } = ActionTypes;
 
 const initialState = {
   player: {
-    coord: 10,
     inJump: false,
-    lastTick: 0
+    displayObject: {
+      y: 10,
+      lastTick: 0
+    }
   }
 };
 

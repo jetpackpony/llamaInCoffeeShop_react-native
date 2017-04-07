@@ -13,7 +13,7 @@ export default ({ state, frameRate, dispatch }) => {
     <View style={styles.container}>
       <Text>{frameRate}</Text>
       <Player
-        position={state.player.coord}
+        position={state.player.displayObject.y}
         onPressIn={() => dispatch(jump())}
       />
     </View>
