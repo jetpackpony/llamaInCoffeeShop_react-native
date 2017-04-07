@@ -1,7 +1,7 @@
-import jumpStartReducer from './jumpStartReducer';
+import jumpReducer from './jumpReducer';
 import tickReducer from './tickReducer';
 import { ActionTypes } from '../actions';
-const { JUMP_START, TICK } = ActionTypes;
+const { JUMP, TICK } = ActionTypes;
 
 const initialState = {
   player: {
@@ -13,7 +13,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case JUMP_START: return jumpStartReducer(state, action);
+    case JUMP: return jumpReducer(state, action);
     case TICK: return tickReducer(state, action);
     default: return state;
   }

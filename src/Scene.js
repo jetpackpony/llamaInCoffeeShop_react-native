@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 
-import { jumpStart } from './actions';
+import { jump } from './actions';
 import Player from './Player';
 
 export default ({ state, frameRate, dispatch }) => {
@@ -14,7 +14,7 @@ export default ({ state, frameRate, dispatch }) => {
       <Text>{frameRate}</Text>
       <Player
         position={state.player.coord}
-        onPressIn={() => dispatch(jumpStart())}
+        onPressIn={() => dispatch(jump())}
       />
     </View>
   );

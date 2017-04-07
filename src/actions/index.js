@@ -1,10 +1,10 @@
 export const ActionTypes = {
-  JUMP_START: 'JUMP_START',
+  JUMP: 'JUMP',
   TICK: 'TICK'
 };
 
-export function jumpStart() {
-  return { type: ActionTypes.JUMP_START };
+export function jump() {
+  return { type: ActionTypes.JUMP };
 }
 
 export function tick(timestamp) {
