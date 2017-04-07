@@ -15,18 +15,18 @@ export default ({ state, frameRate, dispatch }) => {
   return (
     <View style={styles.container}>
       <Text>{frameRate}</Text>
+      <Ground
+        position={state.ground.position}
+        width={Dimensions.get('window').width}
+        tileWidth={state.ground.tileWidth}
+        groundHeight={GROUND_Y + 20}
+      />
       <Player
         position={{
           x: state.player.displayObject.coords.x,
           y: state.player.displayObject.coords.y
         }}
         onPressIn={() => dispatch(jump())}
-      />
-      <Ground
-        position={state.ground.position}
-        width={Dimensions.get('window').width}
-        tileWidth={state.ground.tileWidth}
-        groundHeight={GROUND_Y}
       />
     </View>
   );
