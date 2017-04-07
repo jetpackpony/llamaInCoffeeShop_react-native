@@ -3,6 +3,13 @@ export default function JumpStart(state, action) {
     ...state,
     player: {
       ...state.player,
+      displayObject: {
+        ...state.player.displayObject,
+        velocity: {
+          ...state.player.displayObject.velocity,
+          y: 1500
+        }
+      },
       inJump: true
     }
   };
