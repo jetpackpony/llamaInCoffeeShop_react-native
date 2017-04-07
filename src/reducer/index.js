@@ -14,6 +14,12 @@ const initialState = {
       coords: { x: 30, y: 30 },
       lastTick: 0
     }
+  },
+  ground: {
+    tileWidth: 100,
+    position: 0,
+    velocity: { x: 100, y: 0 },
+    lastTick: 0
   }
 };
 

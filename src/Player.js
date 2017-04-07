@@ -2,14 +2,19 @@ import React from 'react';
 import {
   StyleSheet,
   View,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Image
 } from 'react-native';
+import image from './sprites/llama.png';
 
 export default ({ position, onPressIn }) => {
   return (
     <TouchableWithoutFeedback onPressIn={onPressIn}>
-      <View style={[styles.player, {bottom: position.y, left: position.x}]}>
-      </View>
+      <Image
+        style={[styles.player, {bottom: position.y, left: position.x}]}
+        resizeMode={Image.resizeMode.contain}
+        source={image}
+      />
     </TouchableWithoutFeedback>
   );
 };
@@ -17,8 +22,7 @@ export default ({ position, onPressIn }) => {
 const styles = StyleSheet.create({
   player: {
     position: 'absolute',
-    height: 50,
-    width: 50,
-    backgroundColor: "#567"
+    width: 100,
+    height: 100
   }
 });
