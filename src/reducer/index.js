@@ -1,19 +1,25 @@
-import jumpStartReducer from './jumpStartReducer';
+import jumpReducer from './jumpReducer';
 import tickReducer from './tickReducer';
+
+import { GRAVITY, GROUND_Y } from '../constants';
 import { ActionTypes } from '../actions';
-const { JUMP_START, TICK } = ActionTypes;
+const { JUMP, TICK } = ActionTypes;
 
 const initialState = {
   player: {
-    coord: 10,
     inJump: false,
-    lastUpdate: 0
+    displayObject: {
+      acceleration: { x: 0, y: GRAVITY },
+      velocity: { x: 0, y: 0 },
+      coords: { x: 0, y: 30 },
+      lastTick: 0
+    }
   }
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case JUMP_START: return jumpStartReducer(state, action);
+    case JUMP: return jumpReducer(state, action);
     case TICK: return tickReducer(state, action);
     default: return state;
   }
