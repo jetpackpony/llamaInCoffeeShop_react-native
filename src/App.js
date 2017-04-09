@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Dimensions } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import Orientation from 'react-native-orientation';
 
 import reducer from './reducer';
-import { tick, ActionTypes } from './actions';
+import { tick, ActionTypes, setDimensions } from './actions';
 import Scene from './Scene';
 
 const middlewares = [];
@@ -63,7 +64,9 @@ export default class LlamaInCoffeeShop extends Component {
   }
 
   componentDidMount() {
+    const { width, height } = Dimensions.get('window');
     Orientation.lockToLandscape();
+    store.dispatch(setDimensions(width, height));
   }
 
   componentWillUnmount() {

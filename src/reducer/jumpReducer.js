@@ -1,4 +1,4 @@
-export default function JumpStart(state, action) {
+export default (state, action) => {
   return {
     ...state,
     player: {

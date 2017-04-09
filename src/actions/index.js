@@ -1,6 +1,7 @@
 export const ActionTypes = {
   JUMP: 'JUMP',
-  TICK: 'TICK'
+  TICK: 'TICK',
+  SET_DIMENSIONS: 'SET_DIMENSIONS'
 };
 
 export function jump() {
@@ -9,4 +10,8 @@ export function jump() {
 
 export function tick(timestamp) {
   return { type: ActionTypes.TICK, payload: { timestamp } };
+}
+
+export function setDimensions(width, height) {
+  return { type: ActionTypes.SET_DIMENSIONS, payload: { width, height } };
 }
