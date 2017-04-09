@@ -20,7 +20,18 @@ const initialState = {
     position: 0,
     velocity: { x: 100, y: 0 },
     lastTick: 0
-  }
+  },
+  obstacles: [
+    {
+      id: 'first',
+      displayObject: {
+        acceleration: { x: 0, y: GRAVITY },
+        velocity: { x: 100, y: 0 },
+        coords: { x: 500, y: 100 },
+        lastTick: 0
+      }
+    }
+  ]
 };
 
 export default (state = initialState, action) => {

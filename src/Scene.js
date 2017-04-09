@@ -9,9 +9,17 @@ import {
 import { jump } from './actions';
 import Player from './Player';
 import Ground from './Ground';
+import Obstacle from './Obstacle';
 import { GROUND_Y } from './constants';
 
 export default ({ state, frameRate, dispatch }) => {
+  const obstacles = state.obstacles.map((el) => (
+    <Obstacle
+      key={el.id}
+      groundHeight={GROUND_Y}
+      obj={el.displayObject}
+    />
+  ));
   return (
     <View style={styles.container}>
       <Text>{frameRate}</Text>
@@ -28,6 +36,7 @@ export default ({ state, frameRate, dispatch }) => {
         }}
         onPressIn={() => dispatch(jump())}
       />
+      {obstacles}
     </View>
   );
 };
