@@ -23,6 +23,7 @@ export default ({ state, frameRate, dispatch }) => {
   return (
     <View style={styles.container}>
       <Text>{frameRate}</Text>
+      <Text>Obstacles: {obstacles.length}</Text>
       <Ground
         position={state.ground.position}
         width={Dimensions.get('window').width}

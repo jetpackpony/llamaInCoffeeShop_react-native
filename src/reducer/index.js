@@ -24,6 +24,7 @@ const initialState = {
   obstacles: [
     {
       id: 'first',
+      generated: 0,
       displayObject: {
         acceleration: { x: 0, y: GRAVITY },
         velocity: { x: WORLD_SPEED, y: 0 },
