@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions
-} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import { jump } from './actions';
 import Player from './Player';
@@ -26,7 +21,7 @@ export default ({ state, frameRate, dispatch }) => {
       <Text>Obstacles: {obstacles.length}</Text>
       <Ground
         position={state.ground.position}
-        width={Dimensions.get('window').width}
+        width={state.scene.width}
         tileWidth={state.ground.tileWidth}
         groundHeight={GROUND_Y + 20}
       />

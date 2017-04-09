@@ -1,11 +1,16 @@
 import jumpReducer from './jumpReducer';
 import tickReducer from './tickReducer';
+import setDimensions from './setDimensions';
 
 import { GRAVITY, GROUND_Y, WORLD_SPEED } from '../constants';
 import { ActionTypes } from '../actions';
-const { JUMP, TICK } = ActionTypes;
+const { JUMP, TICK, SET_DIMENSIONS } = ActionTypes;
 
 const initialState = {
+  scene: {
+    width: 0,
+    height: 0
+  },
   player: {
     inJump: false,
     displayObject: {
@@ -37,6 +42,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case SET_DIMENSIONS: return setDimensions(state, action);
     case JUMP: return jumpReducer(state, action);
     case TICK: return tickReducer(state, action);
     default: return state;
