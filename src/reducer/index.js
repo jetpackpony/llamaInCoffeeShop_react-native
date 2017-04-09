@@ -1,7 +1,7 @@
 import jumpReducer from './jumpReducer';
 import tickReducer from './tickReducer';
 
-import { GRAVITY, GROUND_Y } from '../constants';
+import { GRAVITY, GROUND_Y, WORLD_SPEED } from '../constants';
 import { ActionTypes } from '../actions';
 const { JUMP, TICK } = ActionTypes;
 
@@ -18,7 +18,7 @@ const initialState = {
   ground: {
     tileWidth: 100,
     position: 0,
-    velocity: { x: 100, y: 0 },
+    velocity: { x: WORLD_SPEED, y: 0 },
     lastTick: 0
   },
   obstacles: [
@@ -26,7 +26,7 @@ const initialState = {
       id: 'first',
       displayObject: {
         acceleration: { x: 0, y: GRAVITY },
-        velocity: { x: 100, y: 0 },
+        velocity: { x: WORLD_SPEED, y: 0 },
         coords: { x: 500, y: 100 },
         lastTick: 0
       }

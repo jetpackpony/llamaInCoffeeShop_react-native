@@ -15,7 +15,7 @@ export default (ground, timestamp) => {
 
   return {
     ...ground,
-    position: (ground.position - dX) % ground.tileWidth,
+    position: (ground.position + dX) % ground.tileWidth,
     lastTick: timestamp
   };
 };
