@@ -8,6 +8,6 @@ export default function tickReducer(state, action) {
     ...state,
     player: tickPlayer(state.player, timestamp),
     ground: tickGround(state.ground, timestamp),
-    obstacles: tickObstacles(state.obstacles, timestamp)
+    obstacles: tickObstacles(state.obstacles, state.scene, timestamp)
   };
 };
